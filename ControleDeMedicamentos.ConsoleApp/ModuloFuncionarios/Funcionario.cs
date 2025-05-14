@@ -46,5 +46,10 @@ namespace ControleDeMedicamentos.ConsoleApp.ModuloFuncionarios
 
             return erros;
         }
+
+        public override string ToString()
+        {
+            return $"Id: {Id} | Nome: {Nome} | Telefone: {Telefone} | CPF: {CPF} |";
+        }
     }
 }
