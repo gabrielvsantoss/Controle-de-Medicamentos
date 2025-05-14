@@ -14,9 +14,11 @@ namespace ControleDeMedicamentos.ConsoleApp
         {
             WebApplicationBuilder builder = WebApplication.CreateBuilder(args);
 
+            builder.Services.AddControllers();
             WebApplication app = builder.Build();
 
-            app.MapGet("/", PaginaInicial);
+
+
             app.MapGet("/funcionario/cadastrar", ExibirFormularioCadastroFuncionario);
             app.MapPost("/funcionario/cadastrar", CadastrarFuncionario);
 
@@ -26,7 +28,7 @@ namespace ControleDeMedicamentos.ConsoleApp
             app.MapGet("/funcionario/excluir/{id:int}", ExibirFormularioExclusaoFuncionario);
             app.MapPost("/funcionario/excluir/{id:int}", ExcluirFuncionario);
 
-            app.MapGet("/funcionario/visualizar", VisualizarFabricantes);
+            app.MapControllers();
             app.Run();
         }
         static Task ExibirFormularioExclusaoFuncionario(HttpContext context)
@@ -104,22 +106,6 @@ namespace ControleDeMedicamentos.ConsoleApp
 
             return context.Response.WriteAsync(conteudo);
         }
-        static Task VisualizarFabricantes(HttpContext context)
-        {
-            ContextoDados contextoDados = new ContextoDados(true);
-            IRepositorioFuncionario repositorioFuncionario = new RepositorioFuncionarioEmArquivo(contextoDados);
-
-            string conteudo = File.ReadAllText("ModuloFuncionarios/Html/Visualizar.html");
-            StringBuilder sb = new StringBuilder(conteudo);
-            foreach (Funcionario funcionario in repositorioFuncionario.SelecionarRegistros())
-            {
-                string item = $"<li>{funcionario.ToString()} <a href='/funcionario/editar/{funcionario.Id}'> Editar </a> | <a href='/funcionario/excluir/{funcionario.Id}'> Excluir </a> #funcionario# </l1>";
-                sb.Replace("#funcionario#", item);
-            }
-            sb.Replace("#funcionario#", "");
-            conteudo = sb.ToString();
-            return context.Response.WriteAsync(conteudo);
-        }
         static Task CadastrarFuncionario(HttpContext context)
         {
             ContextoDados contextoDados = new ContextoDados(true);
@@ -140,11 +126,6 @@ namespace ControleDeMedicamentos.ConsoleApp
             conteudo = sb.ToString();
             return context.Response.WriteAsync(conteudo);
         }
-        static Task PaginaInicial(HttpContext context)
-        {
-            string conteudo = File.ReadAllText("Compartilhado/Html/PaginaInicial.html");
-            return context.Response.WriteAsync(conteudo);
-        } 
         static Task ExibirFormularioCadastroFuncionario(HttpContext context)
         {
             string conteudo = File.ReadAllText("ModuloFuncionarios/Html/Cadastrar.html");
