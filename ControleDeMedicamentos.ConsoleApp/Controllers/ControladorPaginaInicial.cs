@@ -7,10 +7,7 @@ namespace ControleDeMedicamentos.ConsoleApp.Controllers
     {
         public IActionResult PaginaInicial()
         {
-            // Colocando o system pro IO o arquivo entende qual file é 
-            // IO pe de input e output
-            string conteudo = System.IO.File.ReadAllText("Compartilhado/Html/PaginaInicial.html");
-            return Content(conteudo, "text/html");
+            return View("PaginaInicial");
         }
     }
 }

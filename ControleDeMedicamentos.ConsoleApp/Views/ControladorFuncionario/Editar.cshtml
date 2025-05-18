@@ -1,4 +1,8 @@
-﻿<!DOCTYPE html>
+﻿@using ControleDeMedicamentos.ConsoleApp.ModuloFuncionarios
+@{
+    Funcionario f = ViewBag.Funcionario;
+}
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -13,21 +17,21 @@
 
         <label> Nome do funcionario: </label>
         <br />
-        <input type="text" name="nome" value="#nome#" />
+        <input type="text" name="nome" value="@f.Nome" />
 
         <br />
         <br />
 
         <label>  Telefone do funcionario:  </label>
         <br />
-        <input type="text" name="telefone" value="#telefone#"/>
+        <input type="text" name="telefone" value="@f.Telefone" />
 
         <br />
         <br />
 
         <label>  CPF do funcionario:  </label>
         <br />
-        <input type="text" name="cpf" value="#cpf#"/>
+        <input type="text" name="cpf" value="@f.CPF"/>
 
         <br />
         <br />
