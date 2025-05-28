@@ -30,8 +30,4 @@
     <None Remove="Views\Shared\fundo preto.avif" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Views\ControladorMedicamento\" />
-  </ItemGroup>
-
 </Project>

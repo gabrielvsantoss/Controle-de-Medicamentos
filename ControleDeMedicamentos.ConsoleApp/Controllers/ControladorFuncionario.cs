@@ -68,7 +68,7 @@ namespace ControleDeMedicamentos.ConsoleApp.Controllers
         }
 
         [HttpGet("excluir/{id:int}")]
-         public IActionResult ExibirFormularioExclusaoFuncionario([FromRoute] int id)
+        public IActionResult ExibirFormularioExclusaoFuncionario([FromRoute] int id)
         {
             ContextoDados contextoDados = new ContextoDados(true);
             IRepositorioFuncionario repositorioFuncionario = new RepositorioFuncionarioEmArquivo(contextoDados);
