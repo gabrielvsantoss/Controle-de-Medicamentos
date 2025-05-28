@@ -1,33 +1,138 @@
-﻿@using ControleDeMedicamentos.ConsoleApp.ModuloFuncionarios
-@{
-	Funcionario f = ViewBag.Funcionario;
-}
-}
+﻿@using ControleDeMedicamentos.ConsoleApp.Models
+@using ControleDeMedicamentos.ConsoleApp.ModuloFuncionarios
+
+@model ExcluirFuncionarioViewModel;
+
+
+
 <!DOCTYPE html>
 <html>
+
 <head>
+    <style>
+    body
+        {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+    .barra_inicial
+    {
+        background-color: #1e90ff;
+        padding: 15px 30px;
+        border-radius: 0 0 8px 8px;
+        box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+        text-align: center;
+        color: white;
+    }
+
+    .barra_inicial a
+    {
+        color: white;
+        text-decoration: none;
+        font-weight: bold;
+        font-size: 18px;
+    }
+ 
+
+   
+    .voltar
+    {
+        position: relative;
+        left: 20px;
+        display: inline-block; 
+        text-align: center;
+        height: 18px;
+         width: 85px;
+    }
+
+
+    .actions
+    {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    button
+    {
+        background-color: #1e90ff;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 6px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+
+    button:hover
+    {
+        background-color: #104e8b;
+    }
+
+    a
+    {
+        background-color: #1e90ff;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 6px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        text-decoration: none;
+    }
+
+    a:hover
+    {
+        background-color: #104e8b;
+    }
+
+    .sim
+    {
+        top: -2px;
+        position: relative;
+        left: 10px;
+        width: 100px;
+    }
+
+    h3.titulo
+    {
+        margin-bottom: 20px;
+        font-weight: 600;
+        font-size: 24px;
+        color: #1e90ff;
+        position: relative;
+        left: 10px;
+    }
+
+    p
+    {
+        position: relative;
+        left: 10px;
+    }
+
+    </style>
     <meta charset="utf-8" />
-    <title></title>
+    <title>Funcionarios - Controle de Medicamentos</title>
 </head>
 <body>
-    <!DOCTYPE html>
-    <html>
-    <head>
-        <meta charset="utf-8" />
-        <title> Funcionarios - Controle de Medicamentos </<a href="~/../../../área de trabalho/controle de medicamentos - controllers ee razer pages/controledemedicamentos.consoleapp/views/controladorfuncionario/excluir.cshtml">~/../../../área de trabalho/controle de medicamentos - controllers ee razer pages/controledemedicamentos.consoleapp/views/controladorfuncionario/excluir.cshtml</a>title>
-    </head>
-    <body>
+    <div class="barra_inicial">       
         <h1> Controle de Medicamentos </h1>
+    </div>
 
-        <h3> Funcionarios - Exclusão</h3>
-        <p> Tem certeza que deseja excluir o funcionario @f.Nome?</p>
+        <h3 class="titulo"> Funcionarios - Exclusão</h3>
 
-        <form action="/funcionario/excluir/@f.Id" method="post">
+        <p> Tem certeza que deseja excluir o funcionario @Model.Nome?</p>
+       
 
-        <button> Sim </button> <a href="/">  Voltar</a> </p>
+        <form action="/funcionario/excluir/@Model.Id" method="post">
+
+        <button class="sim"> Sim </button> <a class="voltar" href="/funcionario/visualizar">  Voltar</a> </p>
 
         </form>
     </body>
 </html>
-</body>
-</html>
+

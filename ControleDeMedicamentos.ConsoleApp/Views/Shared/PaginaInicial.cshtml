@@ -1,0 +1,151 @@
+﻿@{
+    Random random = new Random();
+    int aleatorio = random.Next(100, 1000);
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title> Controle de Medicamentos </title>
+    <style>
+
+        body {
+            background-color: white;
+            background-size: 20px 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        .Controle {
+            position: relative;
+            top: 20px;
+            text-align: center;
+        }
+
+        nav {
+            background-color: #1e90ff;
+            width: 101%;
+            top: -20px;
+            position: relative;
+            left: -7px;
+            color: white;
+        }
+
+        ul {
+            text-decoration: none;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .link_navegacao {
+            color: white;
+            left: 1550px;
+            position: relative;
+            width: 350px;
+            top: -26px;
+            padding: 10px 10px;
+        }
+
+        .card {
+            padding: 0px 0px;
+            width: 250px;
+            color: white;
+            font-size: 20px;
+            height: 40px;
+            background-color: #1e90ff;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+        .menu-container {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            margin-top: 40px;
+        }
+
+        .menu {
+            position: relative;
+            display: inline-block;
+        }
+
+        .submenu 
+        {
+            display: none;
+            position: absolute;
+            top: 42px;
+            left: 0;
+            background-color: #1e90ff;
+            border: 1px solid #1e90ff;
+            border-radius: 5px;
+            padding: 5px;
+            z-index: 100;
+            text-align: center;
+            width: 238px;
+        }
+
+        .menu:hover .submenu {
+            display: block;
+        }
+
+        .submenu a 
+        {
+            display: block;
+            padding: 5px 10px;
+            text-decoration: none;
+            font-size: 18px;
+            color: white;
+            border-radius: 3px;
+        }
+
+        .submenu a:hover 
+        {
+            background-color: darkblue;
+        }
+
+    </style>
+</head>
+<body>
+    <nav>
+        <h1 class="Controle"> Controle de Medicamentos </h1>
+
+        <a class="link_navegacao" href="/funcionario/visualizar"> Funcionarios </a>
+        <a class="link_navegacao" href="/fornecedor/visualizar"> Fornecedores </a>
+        <a class="link_navegacao" href="/paciente/visualizar"> Pacientes </a>
+    </nav>
+    <main>
+        <div class="menu-container">
+            <div class="menu">
+                <button class="card">Funcionarios</button>
+                <div class="submenu">
+                    <ul>
+                        <li><a href="/funcionario/cadastrar">Cadastrar funcionário</a></li>
+                        <li><a href="/funcionario/visualizar">Visualizar funcionários</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="menu">
+                <button class="card">Fornecedores</button>
+                <div class="submenu">
+                    <ul>
+                        <li><a href="/fornecedor/cadastrar">Cadastrar fornecedor</a></li>
+                        <li><a href="/fornecedor/visualizar">Visualizar fornecedores</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="menu">
+                <button class="card">Pacientes</button>
+                <div class="submenu">
+                    <ul>
+                        <li><a href="/paciente/cadastrar">Cadastrar paciente</a></li>
+                        <li><a href="/paciente/visualizar">Visualizar pacientes</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

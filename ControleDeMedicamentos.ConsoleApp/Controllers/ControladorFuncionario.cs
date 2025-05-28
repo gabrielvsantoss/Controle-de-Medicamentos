@@ -1,7 +1,8 @@
 ﻿ using ControleDeMedicamentos.ConsoleApp.Compartilhado;
 using ControleDeMedicamentos.ConsoleApp.ModuloFuncionarios;
-using System.Text;
 using Microsoft.AspNetCore.Mvc;
+using ControleDeMedicamentos.ConsoleApp.Models;
+using ControleDeMedicamentos.ConsoleApp.Extensoes;
 
 namespace ControleDeMedicamentos.ConsoleApp.Controllers
 {
@@ -14,27 +15,30 @@ namespace ControleDeMedicamentos.ConsoleApp.Controllers
             ContextoDados contextoDados = new ContextoDados(true);
             IRepositorioFuncionario repositorioFuncionario = new RepositorioFuncionarioEmArquivo(contextoDados);
 
-            ViewBag.Funcionarios = repositorioFuncionario.SelecionarRegistros();
-            return View("Visualizar");
+            List<Funcionario> funcionarios = repositorioFuncionario.SelecionarRegistros();
+
+            VisualizarFuncionariosViewModel visualizarVM = new VisualizarFuncionariosViewModel(funcionarios);
+            return View("Visualizar", visualizarVM);
          }
 
         [HttpGet("cadastrar")]
         public IActionResult ExibirFormularioCadastroFuncionario()
         {
-            return View("Cadastrar");
+            CadastrarFuncionarioViewModel cadastrarVM = new CadastrarFuncionarioViewModel();
+            return View("Cadastrar" , cadastrarVM);
         }   
 
         [HttpPost("cadastrar")]
-        public IActionResult CadastrarFuncionario([FromForm] string nome, [FromForm] string telefone, [FromForm] string cpf)
+        public IActionResult CadastrarFuncionario(CadastrarFuncionarioViewModel cadastrarVM)
         {
             ContextoDados contextoDados = new ContextoDados(true);
             IRepositorioFuncionario repositorioFuncionario = new RepositorioFuncionarioEmArquivo(contextoDados);
 
-            Funcionario funcionario = new Funcionario(nome, telefone, cpf);
-            repositorioFuncionario.CadastrarRegistro(funcionario);
+            Funcionario novoFuncionario =  cadastrarVM.ParaEntidade();
+            repositorioFuncionario.CadastrarRegistro(novoFuncionario);
 
-            ViewBag.Mensagem = $"O funcionário {funcionario.Nome} foi cadastrado com sucesso!";   
-            return View("Notificacao");
+            ViewBag.Mensagem = $"O funcionário {novoFuncionario.Nome} foi cadastrado com sucesso!";   
+            return View("Notificador");
         }
 
         [HttpGet("editar/{id:int}")]
@@ -44,51 +48,50 @@ namespace ControleDeMedicamentos.ConsoleApp.Controllers
             IRepositorioFuncionario repositorioFuncionario = new RepositorioFuncionarioEmArquivo(contextoDados);
 
             Funcionario funcionarioSelecionado = repositorioFuncionario.SelecionarRegistroPorId(id);
+            EditarFuncionarioViewModel editarVM = new EditarFuncionarioViewModel(
+           funcionarioSelecionado.Id, funcionarioSelecionado.Nome, funcionarioSelecionado.Telefone, funcionarioSelecionado.CPF);
 
-            ViewBag.Funcionario = funcionarioSelecionado;
-            return View("Editar");
+            
+            return View("Editar", editarVM);
         }
 
         [HttpPost("editar/{id:int}")]
-        public IActionResult EditarFuncionario([FromRoute] int id, [FromForm] string nome, [FromForm] string telefone, [FromForm] string cpf)
+        public IActionResult EditarFuncionario([FromRoute] int id, Funcionario funcionarioEditado)
         {
             ContextoDados contextoDados = new ContextoDados(true);
             IRepositorioFuncionario repositorioFuncionario = new RepositorioFuncionarioEmArquivo(contextoDados);
-
-            Funcionario funcionarioEditado = new Funcionario(nome, telefone, cpf);
 
             repositorioFuncionario.EditarRegistro(id, funcionarioEditado);
 
             ViewBag.Mensagem = $"O funcionário {funcionarioEditado.Nome} foi editado com sucesso!";
-            return View("Notificacao");
+            return View("Notificador");
         }
 
         [HttpGet("excluir/{id:int}")]
-         public IActionResult ExibirFormularioExclusaoFuncionario([FromForm] int id)
+         public IActionResult ExibirFormularioExclusaoFuncionario([FromRoute] int id)
         {
             ContextoDados contextoDados = new ContextoDados(true);
             IRepositorioFuncionario repositorioFuncionario = new RepositorioFuncionarioEmArquivo(contextoDados);
+            
+            Funcionario funcionarioExcluido = repositorioFuncionario.SelecionarRegistroPorId(id);
 
+            ExcluirFuncionarioViewModel excluirVM =
+            new ExcluirFuncionarioViewModel(funcionarioExcluido.Id, funcionarioExcluido.Nome);
 
-            ViewBag.Funcionario = repositorioFuncionario.SelecionarRegistroPorId(id);
-            return View("Excluir");
+            return View("Excluir", excluirVM);
         }
 
         [HttpPost("excluir/{id:int}")]
-        public IActionResult ExcluirFuncionario([FromForm] int id)
+        public IActionResult ExcluirFuncionario([FromRoute] int id)
         {
             ContextoDados contextoDados = new ContextoDados(true);
             IRepositorioFuncionario repositorioFuncionario = new RepositorioFuncionarioEmArquivo(contextoDados);
 
             repositorioFuncionario.ExcluirRegistro(id);
 
-            string conteudo = System.IO.File.ReadAllText("Compartilhado/Html/Notificador.html");
-            StringBuilder sb = new StringBuilder(conteudo);
-            sb.Replace("#mensagem#", "Funcionário excluído com sucesso!");
+            ViewBag.Mensagem = $"O funcionário foi excluido com sucesso!";
 
-            conteudo = sb.ToString();
-            return Content(conteudo, "text/html");
+            return View("Notificador");
         }
-
     }
 }

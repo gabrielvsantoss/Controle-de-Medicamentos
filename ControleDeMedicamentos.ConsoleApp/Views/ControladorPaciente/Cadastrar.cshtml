@@ -1,0 +1,42 @@
+﻿@using ControleDeMedicamentos.ConsoleApp.ModuloPaciente
+@* O model serve para deixar explicito que as informações desta pagina vao enviar um (MODELO FUNCIONARIO) *@
+@model Paciente;
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title> Pacientes - Controle de Medicamentos </title>
+</head>
+<body>
+    <h1> Controle de Medicamentos </h1>
+
+    <h3> Pacientes - Cadastro </h3>
+
+    <form action="/paciente/cadastrar" method="post">
+
+        <label> Nome do paciente: </label>
+        <br />
+        <input type="text" name="nome" />
+
+        <br />
+        <br />
+
+        <label>  Telefone do paciente:  </label>
+        <br />
+        <input type="text" name="telefone" />
+
+        <br />
+        <br />
+
+        <label>  Cartão do SUS do paciente:  </label>
+        <br />
+        <input type="text" name="cartaoSUS" />
+
+        <br />
+        <br />
+        <p> <button> Salvar </button> <a href="/">  Voltar</a> </p>
+
+    </form>
+</body>
+</html>

@@ -14,4 +14,24 @@
     <None Remove="NewFolder1\**" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Remove="Views\Shared\_Layout.cshtml.cs" />
+    <Compile Remove="Views\Shared\_Layoutt.cshtml.cs" />
+    <Compile Remove="Views\Shared\_Layouttt.cshtml.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="Views\Shared\_Layout.cshtml" />
+    <Content Remove="Views\Shared\_Layoutt.cshtml" />
+    <Content Remove="Views\Shared\_Layouttt.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Views\Shared\fundo preto.avif" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Views\ControladorMedicamento\" />
+  </ItemGroup>
+
 </Project>

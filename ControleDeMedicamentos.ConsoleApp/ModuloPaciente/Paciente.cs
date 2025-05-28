@@ -9,7 +9,10 @@ public class Paciente : EntidadeBase<Paciente>
     public string Telefone { get; set; }
     public string CartaoSus { get; set; }
     
-    public Paciente() { }
+    public Paciente() 
+    { 
+
+    }
 
     public Paciente(string nome, string telefone, string cartaoSus) : this()
     {
@@ -38,7 +41,7 @@ public class Paciente : EntidadeBase<Paciente>
         // Validação do Telefone (formatos: (XX) XXXX-XXXX ou (XX) XXXXX-XXXX)
         if (string.IsNullOrWhiteSpace(Telefone))
             erros += "O campo 'Telefone' é obrigatório.\n";
-        else if (!Regex.IsMatch(Telefone, @"^\(\d{2}\)\s\d{4,5}-\d{4}$") && 
+        else if (!Regex.IsMatch(Telefone, @"^\(\d{2}\)\s\d{4,5}-\d{4}$") &&
                 !Regex.IsMatch(Telefone, @"^\(\d{2}\)\s\d{8,9}$"))
             erros += "O campo 'Telefone' deve seguir um dos formatos: (XX) XXXX-XXXX ou (XX) XXXXX-XXXX";
 
@@ -50,4 +53,10 @@ public class Paciente : EntidadeBase<Paciente>
 
         return erros;
     }
+
+    public override string ToString()
+    {
+        return $"Id: {Id} | Nome: {Nome} | Telefone: {Telefone} | Cartão SUS: {CartaoSus} |";
+    }
 }
+

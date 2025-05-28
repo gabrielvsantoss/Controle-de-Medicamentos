@@ -10,7 +10,12 @@ namespace ControleDeMedicamentos.ConsoleApp.ModuloFuncionarios
         public string Nome { get; set;}
         public string Telefone { get; set;}
         public string CPF { get; set;}
-        public Funcionario(string nome, string telefone, string cpf)
+
+        public Funcionario()
+        {
+
+        }
+        public Funcionario(string nome, string telefone, string cpf) : this()
         {
             Nome = nome;
             Telefone = telefone;
@@ -45,11 +50,6 @@ namespace ControleDeMedicamentos.ConsoleApp.ModuloFuncionarios
                 erros += "O campo CPF deve conter 11 digitos.\n";
 
             return erros;
-        }
-
-        public override string ToString()
-        {
-            return $"Id: {Id} | Nome: {Nome} | Telefone: {Telefone} | CPF: {CPF} |";
         }
     }
 }

@@ -1,0 +1,25 @@
+﻿@using ControleDeMedicamentos.ConsoleApp.Models
+@using ControleDeMedicamentos.ConsoleApp.ModuloFuncionarios
+
+@model ExcluirPacienteViewModel;
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Pacientes - Controle de Medicamentos</title>
+</head>
+<body>
+    <h1> Controle de Medicamentos </h1>
+
+    <h3> Pacientes - Exclusão</h3>
+    <p> Tem certeza que deseja excluir o paciente @Model.Nome?</p>
+
+    <form action="/paciente/excluir/@Model.Id" method="post">
+
+        <button> Sim </button> <a href="/">  Voltar</a> </p>
+
+    </form>
+</body>
+</html>
+

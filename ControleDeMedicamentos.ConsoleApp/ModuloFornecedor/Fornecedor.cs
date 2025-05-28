@@ -17,6 +17,12 @@ public class Fornecedor : EntidadeBase<Fornecedor>
         CNPJ = cnpj;
     }
 
+    public Fornecedor()
+    {
+
+    }
+
+
     public override void AtualizarRegistro(Fornecedor registroEditado)
     {
         Nome = registroEditado.Nome;    
@@ -48,5 +54,11 @@ public class Fornecedor : EntidadeBase<Fornecedor>
             erros += "O campo CNPJ deve seguir o formato: XX.XXX.XXX/XXXX-XX"; 
 
         return erros.Trim();
+    }
+
+
+    public override string ToString()
+    {
+        return $"Id: {Id} | Nome: {Nome} | Telefone: {Telefone} | CPF: {CNPJ} |";
     }
 }
