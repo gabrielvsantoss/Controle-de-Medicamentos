@@ -60,5 +60,15 @@ namespace ControleDeMedicamentos.ConsoleApp.Extensoes
             }
             return fornecedoresVM;
         }
+
+        public static ExcluirMedicamentoViewModel ParaExcluirVM(this Medicamento medicamento)
+        {
+            return new ExcluirMedicamentoViewModel
+                (
+                     medicamento.Id,
+                    medicamento.Nome
+                );
+        }
+
     }
 }

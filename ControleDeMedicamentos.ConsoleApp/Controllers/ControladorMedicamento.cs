@@ -79,5 +79,35 @@ namespace ControleDeMedicamentos.ConsoleApp.Controllers
             ViewBag.Mensagem = $"O medicamento {medicamento.Nome} foi editado com sucesso!";
             return View("Notificador");
         }
+
+        [HttpGet("excluir/{Id:int}")]
+
+        public IActionResult ExibirFormularioExclusaoMedicamento([FromRoute] int id)
+        {
+
+
+            var contextoDados = new ContextoDados(true);
+            var repositorio = new RepositorioMedicamentoEmArquivo(contextoDados);
+
+            var medicamento = repositorio.SelecionarRegistroPorId(id);
+
+            ExcluirMedicamentoViewModel excluirVM = medicamento.ParaExcluirVM();
+            return View("Excluir", excluirVM);
+        }
+
+        [HttpPost("excluir/{Id:int}")]
+        public IActionResult ExcluirMedicamento([FromRoute] int id, ExcluirMedicamentoViewModel excluirVM)
+        {
+
+            var contextoDados = new ContextoDados(true);
+            var repositorioMedicamento = new RepositorioMedicamentoEmArquivo(contextoDados);
+
+
+            repositorioMedicamento.ExcluirRegistro(id);
+
+
+            ViewBag.Mensagem = $"O medicamento foi excluido com sucesso!";
+            return View("Notificador");
+        }
     }
 }

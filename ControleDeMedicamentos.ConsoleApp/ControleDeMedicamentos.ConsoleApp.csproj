@@ -30,4 +30,9 @@
     <None Remove="Views\Shared\fundo preto.avif" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Views\ControladorRequisicaoEntrada\" />
+    <Folder Include="Views\ControladorRequisicaoSaida\" />
+  </ItemGroup>
+
 </Project>

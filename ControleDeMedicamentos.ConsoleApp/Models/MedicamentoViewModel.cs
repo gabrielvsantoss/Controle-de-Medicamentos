@@ -76,7 +76,21 @@ namespace ControleDeMedicamentos.ConsoleApp.Models
             }
         }
     }
+    public class ExcluirMedicamentoViewModel
+    {
+        public int Id { get; set; }
 
+        public string Nome { get; set; }
+        public ExcluirMedicamentoViewModel()
+        {
+
+        }
+        public ExcluirMedicamentoViewModel(int id, string nome)
+        {
+            Id = id;
+            Nome = nome;
+        }
+    }
     public class DetalheMedicamentoViewModel
     {
         public int Id { get; set; }
