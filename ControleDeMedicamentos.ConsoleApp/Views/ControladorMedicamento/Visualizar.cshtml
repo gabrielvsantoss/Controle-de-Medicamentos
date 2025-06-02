@@ -106,13 +106,15 @@
             gap: 3px;
         }
 
-        .barras {
+        .barras
+        {
             gap: 30px;
             display: flex;
             justify-content: center;
         }
 
-        hr {
+        hr 
+        {
             position: relative;
             width: 102%;
             left: -28px;
@@ -132,23 +134,23 @@
 <body>
     <div class="barra_inicial">
         <div class="barras">
-            <a href="/medicamento/cadastrar">Cadastrar medicamento</a> <a href="/">Página Inicial</a>
+            <a href="/medicamentos/cadastrar">Cadastrar medicamento</a> <a href="/">Página Inicial</a>
         </div>
 
         <hr />
         <h1>Controle de Medicamentos</h1>
     </div>
 
-    <h3 class="titulo">Funcionários - Visualização</h3>
+    <h3 class="titulo">Medicamentos - Visualização</h3>
 
-    <ul class="funcionario-list">
+    <ul class="medicamento-list">
         @foreach (DetalheMedicamentoViewModel f in Model.Registros)
         {
             <li>
                 <span>@f.ToString()</span>
                 <div class="opa">
-                    <a href="/funcionario/editar/@f.Id">Editar</a> |
-                    <a href="/funcionario/excluir/@f.Id">Excluir</a>
+                    <a href="/medicamentos/editar/@f.Id">Editar</a> |
+                    <a href="/medicamentos/excluir/@f.Id">Excluir</a>
                 </div>
             </li>
         }

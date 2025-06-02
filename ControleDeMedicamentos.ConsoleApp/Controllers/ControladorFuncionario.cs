@@ -25,6 +25,7 @@ namespace ControleDeMedicamentos.ConsoleApp.Controllers
         public IActionResult ExibirFormularioCadastroFuncionario()
         {
             CadastrarFuncionarioViewModel cadastrarVM = new CadastrarFuncionarioViewModel();
+
             return View("Cadastrar" , cadastrarVM);
         }   
 

@@ -11,9 +11,9 @@ namespace ControleDeMedicamentos.ConsoleApp.Extensoes
             return new Funcionario(formularioVM.Nome, formularioVM.Telefone, formularioVM.CPF); 
         }
 
-        public static DetalheFabricanteViewModel ParaDetalheViewModel(this Funcionario funcionario)
+        public static DetalheFuncionarioViewModel ParaDetalheViewModel(this Funcionario funcionario)
         {
-            return new DetalheFabricanteViewModel(funcionario.Id, funcionario.Nome, funcionario.Telefone, funcionario.CPF);
+            return new DetalheFuncionarioViewModel(funcionario.Id, funcionario.Nome, funcionario.Telefone, funcionario.CPF);
         }
     }
 }

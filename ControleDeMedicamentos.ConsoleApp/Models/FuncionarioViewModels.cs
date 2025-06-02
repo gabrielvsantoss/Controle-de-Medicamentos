@@ -47,24 +47,24 @@ namespace ControleDeMedicamentos.ConsoleApp.Models
     }
     public class VisualizarFuncionariosViewModel
     {
-        public List<DetalheFabricanteViewModel> registros { get; } = new List<DetalheFabricanteViewModel>();
+        public List<DetalheFuncionarioViewModel> registros { get; } = new List<DetalheFuncionarioViewModel>();
         public VisualizarFuncionariosViewModel(List<Funcionario> fabricantes)
         {
            foreach(Funcionario f in fabricantes)
             {
-                DetalheFabricanteViewModel detalhesVM =  f.ParaDetalheViewModel();
+                DetalheFuncionarioViewModel detalhesVM =  f.ParaDetalheViewModel();
                 registros.Add(detalhesVM);
             } 
         }
     }
-    public class DetalheFabricanteViewModel
+    public class DetalheFuncionarioViewModel
     {
         public int Id { get; set; }
         public string Nome { get; set; }
         public string Telefone { get; set; }
         public string CPF { get; set; }
 
-        public DetalheFabricanteViewModel(int id, string nome, string telefone, string cpf)
+        public DetalheFuncionarioViewModel(int id, string nome, string telefone, string cpf)
         {
             Id = id;
             Nome = nome;
