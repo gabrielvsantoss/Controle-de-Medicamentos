@@ -28,7 +28,6 @@ namespace ControleDeMedicamentos.ConsoleApp.Extensoes
         }
         public static DetalheMedicamentoViewModel ParaDetalheVM(this Medicamento medicamento)
         {
-
             return new DetalheMedicamentoViewModel
                 (
                     medicamento.Id,

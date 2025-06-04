@@ -15,24 +15,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Remove="Views\Shared\_Layout.cshtml.cs" />
-    <Compile Remove="Views\Shared\_Layoutt.cshtml.cs" />
-    <Compile Remove="Views\Shared\_Layouttt.cshtml.cs" />
+    <Content Remove="Views\ControladorRequisicaoEntrada.cshtml" />
   </ItemGroup>
 
   <ItemGroup>
-    <Content Remove="Views\Shared\_Layout.cshtml" />
-    <Content Remove="Views\Shared\_Layoutt.cshtml" />
-    <Content Remove="Views\Shared\_Layouttt.cshtml" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Remove="Views\Shared\fundo preto.avif" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Views\ControladorRequisicaoEntrada\" />
-    <Folder Include="Views\ControladorRequisicaoSaida\" />
+    <Compile Include="Views\ControladorRequisicaoEntrada\Cadastrar.cshtml" />
   </ItemGroup>
 
 </Project>
