@@ -9,19 +9,22 @@
     <title> Controle de Medicamentos </title>
     <style>
 
-        body {
+        body 
+        {
             background-color: white;
             background-size: 20px 20px;
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
-        .Controle {
+        .Controle
+        {
             position: relative;
             top: 20px;
             text-align: center;
         }
 
-        nav {
+        nav 
+        {
             background-color: #1e90ff;
             width: 101%;
             top: -20px;
@@ -30,14 +33,16 @@
             color: white;
         }
 
-        ul {
+        ul 
+        {
             text-decoration: none;
             list-style: none;
             padding: 0;
             margin: 0;
         }
 
-        .link_navegacao {
+        .link_navegacao 
+        {
             color: white;
             left: 1550px;
             position: relative;
@@ -46,7 +51,8 @@
             padding: 10px 10px;
         }
 
-        .card {
+        .card 
+        {
             padding: 0px 0px;
             width: 250px;
             color: white;
@@ -58,14 +64,16 @@
             border-radius: 4px;
         }
 
-        .menu-container {
+        .menu-container 
+        {
             display: flex;
             gap: 30px;
             justify-content: center;
             margin-top: 40px;
         }
 
-        .menu {
+        .menu
+        {
             position: relative;
             display: inline-block;
         }
@@ -85,7 +93,8 @@
             width: 238px;
         }
 
-        .menu:hover .submenu {
+        .menu:hover .submenu
+        {
             display: block;
         }
 
@@ -113,6 +122,7 @@
         <a class="link_navegacao" href="/funcionario/visualizar"> Funcionarios </a>
         <a class="link_navegacao" href="/fornecedor/visualizar"> Fornecedores </a>
         <a class="link_navegacao" href="/paciente/visualizar"> Pacientes </a>
+        <a class="link_navegacao" href="/RequisicaoEntrada/Visualizar"> Requisições de Entrada </a>
     </nav>
     <main>
         <div class="menu-container">
@@ -152,6 +162,20 @@
                     <ul>
                         <li><a href="/medicamentos/cadastrar">Cadastrar medicamento</a></li>
                         <li><a href="/medicamentos/visualizar">Visualizar medicamentos</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <main>
+        <div class="menu-container">
+            <div class="menu">
+                <button class="card">Requisições de Entrada</button>
+                <div class="submenu">
+                    <ul>
+                        <li><a href="/RequisicaoEntrada/Cadastrar">Cadastrar medicamento</a></li>
+                        <li><a href="/RequisicaoEntrada/Visualizar">Visualizar medicamentos</a></li>
                     </ul>
                 </div>
             </div>

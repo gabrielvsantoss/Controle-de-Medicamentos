@@ -8,11 +8,11 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ControleDeMedicamentos.ConsoleApp.Controllers
 {
-    [Route("ControladorRequisicaoEntrada")]
+    [Route("RequisicaoEntrada")]
 
-    public class  ControladorR: Controller
+    public class ControladorRequisicaoEntrada : Controller
     {
-        [HttpGet("visualizar")]
+        [HttpGet("Visualizar")]
         public IActionResult Visualizar()
         {
             var contextoDados = new ContextoDados(true);
@@ -25,7 +25,7 @@ namespace ControleDeMedicamentos.ConsoleApp.Controllers
             return View("Visualizar", visualizarVM);
         }
 
-        [HttpGet("cadastrar")]
+        [HttpGet("Cadastrar")]
         public IActionResult ExibirFormularioDeCadastroRequisicaoEntrada()
         {
             var contextoDados = new ContextoDados(true);
@@ -39,7 +39,7 @@ namespace ControleDeMedicamentos.ConsoleApp.Controllers
             return View("Cadastrar", cadastrarVM);
         }
 
-        [HttpPost("cadastrar")]
+        [HttpPost("Cadastrar")]
         public IActionResult CadastrarRequisicaoEntrada(CadastrarRequisicaoEntradaViewModel cadastrarVM)
         {
             var contextoDados = new ContextoDados(true);
@@ -55,7 +55,5 @@ namespace ControleDeMedicamentos.ConsoleApp.Controllers
             repositorio.CadastrarRegistro(requisicaoEntrada);
             return View("Cadastrar", cadastrarVM);
         }
-
-
     }
 }

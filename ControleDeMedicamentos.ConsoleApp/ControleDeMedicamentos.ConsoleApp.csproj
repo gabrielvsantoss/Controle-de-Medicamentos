@@ -18,8 +18,4 @@
     <Content Remove="Views\ControladorRequisicaoEntrada.cshtml" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Compile Include="Views\ControladorRequisicaoEntrada\Cadastrar.cshtml" />
-  </ItemGroup>
-
 </Project>
