@@ -1,8 +1,4 @@
-﻿@{
-    Random random = new Random();
-    int aleatorio = random.Next(100, 1000);
-}
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -25,12 +21,12 @@
 
         nav 
         {
+            position: relative;
             background-color: #1e90ff;
             width: 101%;
             top: -20px;
-            position: relative;
-            left: -7px;
             color: white;
+            left: -10px;
         }
 
         ul 
@@ -41,20 +37,17 @@
             margin: 0;
         }
 
-        .link_navegacao 
+      
+        .link_navegacao1
         {
             color: white;
-            left: 1550px;
             position: relative;
-            width: 350px;
             top: -26px;
-            padding: 10px 10px;
         }
-
         .card 
         {
             padding: 0px 0px;
-            width: 250px;
+            width: 300px;
             color: white;
             font-size: 20px;
             height: 40px;
@@ -66,10 +59,21 @@
 
         .menu-container 
         {
+            position:relative;
+            top: 100px;
             display: flex;
             gap: 30px;
             justify-content: center;
             margin-top: 40px;
+        }
+
+        .menu-container2
+        {
+            position: relative;
+            gap: 30px;
+            top: 200px;
+            display: flex;
+            justify-content: center;
         }
 
         .menu
@@ -90,7 +94,7 @@
             padding: 5px;
             z-index: 100;
             text-align: center;
-            width: 238px;
+            width: 290px;
         }
 
         .menu:hover .submenu
@@ -113,16 +117,36 @@
             background-color: darkblue;
         }
 
+        .menu:hover .submenu
+        {
+            display: block;
+        }
+
+        .links_nav
+        {
+            display: flex;
+            justify-content: flex-end;
+            gap: 15px;
+            flex-wrap: wrap;
+            position: relative;
+            left: -10px;
+        }
+        
+
     </style>
 </head>
 <body>
+   
     <nav>
         <h1 class="Controle"> Controle de Medicamentos </h1>
-
-        <a class="link_navegacao" href="/funcionario/visualizar"> Funcionarios </a>
-        <a class="link_navegacao" href="/fornecedor/visualizar"> Fornecedores </a>
-        <a class="link_navegacao" href="/paciente/visualizar"> Pacientes </a>
-        <a class="link_navegacao" href="/RequisicaoEntrada/Visualizar"> Requisições de Entrada </a>
+        <div class="links_nav">
+        <a class="link_navegacao1" href="/funcionario/visualizar"> Funcionarios </a>
+        <a class="link_navegacao1" href="/fornecedor/visualizar"> Fornecedores </a>
+        <a class="link_navegacao1" href="/paciente/visualizar"> Pacientes </a>
+        <a class="link_navegacao1" href="/RequisicaoEntrada/Visualizar"> Req Entrada </a>
+        <a class="link_navegacao1" href="/RequisicaoSaida/Visualizar"> Req Saida </a>
+        <a class="link_navegacao1" href="/PrescricaoMedica/Visualizar"> Prescrições </a>
+        </div>
     </nav>
     <main>
         <div class="menu-container">
@@ -169,7 +193,8 @@
     </main>
 
     <main>
-        <div class="menu-container">
+
+        <div class="menu-container2">
             <div class="menu">
                 <button class="card">Requisições de Entrada</button>
                 <div class="submenu">
@@ -179,6 +204,17 @@
                     </ul>
                 </div>
             </div>
+
+            <div class="menu">
+                <button class="card">Prescrições medicas</button>
+                <div class="submenu">
+                    <ul>
+                        <li><a href="/PrescricaoMedica/Cadastrar">Cadastrar prescrição medica</a></li>
+                        <li><a href="/PrescricaoMedica/Visualizar">Visualizar prescrições</a></li>
+                    </ul>
+                </div>
+            </div>
+
         </div>
     </main>
 </body>

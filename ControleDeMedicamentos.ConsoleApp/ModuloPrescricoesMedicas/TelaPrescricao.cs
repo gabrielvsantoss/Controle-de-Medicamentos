@@ -67,11 +67,10 @@ namespace ControleDeMedicamentos.ConsoleApp.ModuloPrescricoesMedicas
                     Console.Write("Data inválida. Digite novamente (dd/mm/yyyy): ");
                 }
 
-                
-                Console.WriteLine("Digite");
-                PrescricaoMedica PrescricaoMedica = new PrescricaoMedica(CRM, dataPrescricao);
+                PrescricaoMedica prescricaoMedica = new PrescricaoMedica(CRM, dataPrescricao, medicamentos);
 
-                return PrescricaoMedica;
+
+                return prescricaoMedica;
             }
         }
         

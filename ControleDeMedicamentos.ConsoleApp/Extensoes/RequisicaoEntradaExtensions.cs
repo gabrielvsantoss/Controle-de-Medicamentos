@@ -22,7 +22,7 @@ namespace ControleDeMedicamentos.ConsoleApp.Extensoes
         }
 
 
-        public static RequisicaoEntrada ParaEntidade(this FormularioRequisicaoEntradaViewModel formularioVM, List<Funcionario> funcionarios, List<Medicamento>  medicamentos)
+        public static RequisicaoEntrada ParaEntidade(this CadastrarRequisicaoEntradaViewModel formularioVM, List<Funcionario> funcionarios, List<Medicamento>  medicamentos)
         {
             Funcionario funcionarioSelecionado = null;
             Medicamento medicamentoSelecionado = null;

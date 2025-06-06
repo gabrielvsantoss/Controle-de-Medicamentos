@@ -5,37 +5,173 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <style>
+
+        body 
+        {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .barra_inicial 
+        {
+            background-color: #1e90ff;
+            padding: 15px 30px;
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+            text-align: center;
+            color: white;
+        }
+
+        .barra_inicial a 
+        {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .container 
+        {
+            max-width: 600px;
+            background-color: white;
+            margin: 40px auto;
+            padding: 30px 40px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        label
+        {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        input[type="text"] 
+        {
+            width: 1800px;
+            padding: 10px;
+            margin-bottom: 0px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 14px;
+            left: 10px;
+            position: relative;
+            top: -12px;
+        }
+
+        .actions 
+        {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        button 
+        {
+            background-color: #1e90ff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover 
+        {
+            background-color: #104e8b;
+        }
+
+        a 
+        {
+            background-color: #1e90ff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+        }
+
+        a:hover 
+        {
+            background-color: #104e8b;
+        }
+
+        .voltar 
+        {
+            display: inline-block;
+            position: relative;
+            left: 15px;
+            height: 20px;
+            width: 45px;
+        }
+
+        .tralala 
+        {
+            position: relative;
+            left: 10px;
+            font-size: 18px;
+        }
+
+        .salvar 
+        {
+            position: relative;
+            left: 10px;
+            display: inline-block;
+            height: 40px;
+            top: -2px;
+        }
+
+        h3.titulo
+        {
+            margin-bottom: 20px;
+            font-weight: 600;
+            font-size: 24px;
+            color: #1e90ff;
+            position: relative;
+            left: 10px;
+        }
+
+    </style>
     <meta charset="utf-8" />
     <title> Funcionarios - Controle de Medicamentos </title>
 </head>
 <body>
-    <h1> Controle de Medicamentos </h1>
-
-    <h3> Fornecedores - Cadastro </h3>
+    <div class="barra_inicial">
+        <h1> Controle de Medicamentos </h1>
+    </div>
+    <h3 class="titulo"> Fornecedores - Cadastro </h3>
 
     <form action="/fornecedor/cadastrar" method="post">
 
-        <label> Nome do fornecedor: </label>
+        <label class="tralala"> Nome do fornecedor: </label>
         <br />
         <input type="text" name="nome" />
 
         <br />
         <br />
 
-        <label>  Telefone do fornecedor:  </label>
+        <label class="tralala">  Telefone do fornecedor:  </label>
         <br />
         <input type="text" name="telefone" />
 
         <br />
         <br />
 
-        <label>  CNPJ do fornecedor:  </label>
+        <label class="tralala">  CNPJ do fornecedor:  </label>
         <br />
         <input type="text" name="cnpj" />
 
         <br />
         <br />
-        <p> <button> Salvar </button> <a href="/">  Voltar</a> </p>
+        <p> <button class="salvar"> Salvar </button> <a class="voltar" href="/">  Voltar</a> </p>
 
     </form>
 </body>

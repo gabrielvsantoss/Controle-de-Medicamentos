@@ -13,19 +13,24 @@ namespace ControleDeMedicamentos.ConsoleApp.ModuloPrescricoesMedicas
 {
     public class PrescricaoMedica : EntidadeBase<PrescricaoMedica>
     {
+
+        public List<Medicamento> Medicamentos2 { get; set; } = new List<Medicamento>();
         public string CRM { get; set; }
         public DateTime DataPrescricao { get; set; }
+        public List<Medicamento> Medicamentos { get; set; } = new List<Medicamento>();
 
-        public PrescricaoMedica(string crm, DateTime dataPrescricao)
+        public PrescricaoMedica(string crm, DateTime dataPrescricao, List<Medicamento> medicamentos)
         {
             CRM = crm;
             DataPrescricao = dataPrescricao;
+            Medicamentos = medicamentos;
         }
 
         public override void AtualizarRegistro(PrescricaoMedica registroEditado)
         {
             CRM = registroEditado.CRM;
             DataPrescricao = registroEditado.DataPrescricao;
+            Medicamentos = registroEditado.Medicamentos;
         }
 
         public override string Validar()
@@ -42,7 +47,6 @@ namespace ControleDeMedicamentos.ConsoleApp.ModuloPrescricoesMedicas
                 erros += "A data de prescricao é invalida.\n";
             else if (DataPrescricao > DateTime.Today)
                 erros += "A data de prescricao não pode ser futura.\n";
-
 
                 return erros;
         }

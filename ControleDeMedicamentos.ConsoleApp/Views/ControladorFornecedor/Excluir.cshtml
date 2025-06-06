@@ -6,16 +6,107 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <style>
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .barra_inicial {
+            background-color: #1e90ff;
+            padding: 15px 30px;
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.1);
+            text-align: center;
+            color: white;
+        }
+
+            .barra_inicial a {
+                color: white;
+                text-decoration: none;
+                font-weight: bold;
+                font-size: 18px;
+            }
+
+        .voltar {
+            position: relative;
+            left: 20px;
+            display: inline-block;
+            text-align: center;
+            height: 18px;
+            width: 85px;
+        }
+
+        .actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        button {
+            background-color: #1e90ff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+            button:hover {
+                background-color: #104e8b;
+            }
+
+        a {
+            background-color: #1e90ff;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            text-decoration: none;
+        }
+
+            a:hover {
+                background-color: #104e8b;
+            }
+
+        .sim {
+            top: -2px;
+            position: relative;
+            left: 10px;
+            width: 100px;
+        }
+
+        h3.titulo {
+            margin-bottom: 20px;
+            font-weight: 600;
+            font-size: 24px;
+            color: #1e90ff;
+            position: relative;
+            left: 10px;
+        }
+
+        p {
+            position: relative;
+            left: 10px;
+        }
+
+    </style>
     <meta charset="utf-8" />
     <title>Fornecedores - Controle de Medicamentos</title>
 </head>
 <body>
-    <h1> Controle de Medicamentos </h1>
-
-    <h3> Fornecedores - Exclusão</h3>
+    <div class="barra_inicial">
+        <h1> Controle de Medicamentos </h1>
+    </div>
+    <h3 class="titulo"> Fornecedores - Exclusão</h3>
     <p> Tem certeza que deseja excluir o fornecedor @Model.Nome?</p>
-    <p> opa</p>
-    <p> bao</p>
 
     <form action="/fornecedor/excluir/@Model.Id" method="post">
 
