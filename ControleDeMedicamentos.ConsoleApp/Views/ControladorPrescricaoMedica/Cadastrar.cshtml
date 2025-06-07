@@ -5,7 +5,7 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title> Medicamentos - Controle de Medicamentos </title>
+    <title> Prescrição Medica - Controle de Medicamentos </title>
     <style>
 
         body 
@@ -52,7 +52,7 @@
 
         input[type="text"] 
         {
-            width: 1800px;
+            width: 1490px;
             padding: 10px;
             margin-bottom: 0px;
             border: 1px solid #ccc;
@@ -140,34 +140,38 @@
             left: 10px;
         }
 
+        .PrescricaoMedica 
+        {
+            position: relative;
+            left: 10px;
+            width: 300px;
+            height: 35px;
+            font-size: 20px;
+            top: -10px;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
     <div class="barra_inicial">
         <h1> Controle de Requisição de Entrada </h1>
     </div>
-    <h3 class="titulo"> Medicamentos - Cadastro </h3>
+    <h3 class="titulo"> Prescrição Medica - Cadastro </h3>
 
 
     <form action="/PrescricaoMedica/Cadastrar" method="post">
 
-        <label>CRM do medico que esta fazendo a requisição</label>
+        <label class="tralala">CRM do medico que esta fazendo a requisição</label>
         <br />
         <input type="text" id="CRM" name="CRM" />
 
         <br />
         <br />
 
-        <label>Data </label>
-        <br />
-        <input type="date" id="DataPrescricao" name="DataPrescricao" />
 
+        <label class="tralala" for="medicamentoId"> Medicamento que esta sendo feito a prescrição:</label>
         <br />
-        <br />
-
-        <label for="medicamentoId"> Medicamento que esta sendo feito a prescrição:</label>
-        <br />
-        <select name="medicamentoId" id="medicamentoId">
+        <select class="PrescricaoMedica" name="medicamentoId" id="medicamentoId">
 
             @foreach (var medicamento in Model.MedicamentosDisponiveis)
             {
@@ -179,9 +183,9 @@
         <br />
         <br />
 
-        <label for="pacienteId"> Paciente que esta sendo feito a prescrição:</label>
+        <label class="tralala"> Paciente que esta sendo feito a prescrição:</label>
         <br />
-        <select name="pacienteId" id="pacienteId">
+        <select class="PrescricaoMedica" name="pacienteId" id="pacienteId">
 
             @foreach (var paciente in Model.PacientesDisponiveis)
             {

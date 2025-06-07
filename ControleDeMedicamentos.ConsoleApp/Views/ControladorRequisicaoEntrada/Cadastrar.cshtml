@@ -5,7 +5,7 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <title> Medicamentos - Controle de Medicamentos </title>
+    <title> Requisição de Entrada - Controle de Medicamentos </title>
     <style>
 
         body 
@@ -139,28 +139,49 @@
             position: relative;
             left: 10px;
         }
+        
+        .RequisicoesEntrada
+        {
+            position: relative;
+            left: 10px;
+            width: 300px;
+            height: 35px;
+            font-size: 20px;
+            top: -10px;
+            border-radius: 5px;
+        }
 
+        .data
+        {
+            position: relative;
+            left: 10px;
+            width: 300px;
+            height: 35px;
+            font-size: 20px;
+            top: -10px;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
     <div class="barra_inicial">
         <h1> Controle de Requisição de Entrada </h1>
     </div>
-    <h3 class="titulo"> Medicamentos - Cadastro </h3>
+    <h3 class="titulo"> Requisição de Entrada - Cadastro </h3>
 
 
     <form action="/RequisicaoEntrada/Cadastrar" method="post">
 
-        <label>Data que esta sendo feita a requisição de entrada:</label>
+        <label class="tralala"> Data que esta sendo feita a requisição de entrada:</label>
         <br />
-        <input type="date" id="Data" name="Data" />
+        <input class="data" type="date" id="Data" name="Data" />
 
         <br />
         <br />
 
-        <label for="funcionarioId"> Funcionario responsavel pela requisição:</label>
+        <label class="tralala" for="funcionarioId"> Funcionario responsavel pela requisição:</label>
         <br />
-        <select name="funcionarioId" id="funcionarioId">
+        <select class="RequisicoesEntrada" name="funcionarioId" id="funcionarioId">
 
             @foreach (var funcionario in Model.FuncionariosDisponiveis)
             {
@@ -171,9 +192,9 @@
         <br />
 		<br />
 
-        <label for="medicamentoId"> Medicamento da requisiçaõ: </label>
+        <label class="tralala" medicamentoId"> Medicamento da requisiçaõ: </label>
         <br />
-        <select name="medicamentoId" id="medicamentoId">
+        <select  class="RequisicoesEntrada" name="medicamentoId" id="medicamentoId">
 
             @foreach (var  medicamento in Model.MedicamentosDisponiveis)
             {
@@ -184,7 +205,7 @@
         <br />
         <br />
 
-        <label>Quantidade do medicamento:</label>
+        <label class="tralala"> Quantidade do medicamento:</label>
         <br />
         <input type="text" id="Quantidade" name="Quantidade" />
 

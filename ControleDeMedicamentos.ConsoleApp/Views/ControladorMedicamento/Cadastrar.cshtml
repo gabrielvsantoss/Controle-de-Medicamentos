@@ -52,7 +52,7 @@
 
         input[type="text"] 
         {
-            width: 1800px;
+            width:  1490px;
             padding: 10px;
             margin-bottom: 0px;
             border: 1px solid #ccc;
@@ -140,6 +140,17 @@
             left: 10px;
         }
 
+        .fornecedores
+        {
+            position: relative;
+            left: 10px;
+            width: 300px;
+            height: 35px;
+            font-size: 20px;
+            top: -10px;
+            border-radius: 5px;
+        }
+        
     </style>
 </head>
 <body>
@@ -151,34 +162,36 @@
 
     <form action="/medicamentos/cadastrar" method="post">
 
-        <label> Nome do medicamento:</label>
+        <label class="tralala"> Nome do medicamento:</label>
         <br />
         <input type="text" id="Nome" name="Nome" />
 
         <br /> 
         <br />
 
-        <label> Descrição do medicamento:</label>
+        <label class="tralala"> Descrição do medicamento:</label>
         <br />
         <input type="text" id="Descricao" name="Descricao" />
 
         <br />
         <br />
 
-        <label> Quantidade em estoque do medicamento:</label>
+        <label class="tralala"> Quantidade em estoque do medicamento:</label>
         <br />
         <input type="text" id="QuantidadeEmEstoque" name="QuantidadeEmEstoque" />
 
         <br />
         <br />
 
-        <label for="fornecedorId"> Fornecedor do Medicamento</label>
+        <label  class="tralala" for="fornecedorId"> Fornecedor do Medicamento</label>
         <br />
-        <select name="fornecedorId" id="fornecedorId">
 
+        <select  class="fornecedores" name="fornecedorId" id="fornecedorId">
+
+            <
             @foreach (var fornecedor in  Model.FornecedoresDisponiveis)
             {
-                <option value="@fornecedor.Id"> @fornecedor.Nome </option>
+                <option  value="@fornecedor.Id"> @fornecedor.Nome </option>
             }
         </select>
 
