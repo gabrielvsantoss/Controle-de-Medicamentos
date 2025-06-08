@@ -52,8 +52,10 @@ namespace ControleDeMedicamentos.ConsoleApp.Controllers
 
             RequisicaoEntrada requisicaoEntrada = cadastrarVM.ParaEntidade(funcionarios, medicamentos);
 
+
             repositorio.CadastrarRegistro(requisicaoEntrada);
-            return View("Cadastrar", cadastrarVM);
+            ViewBag.Mensagem = $"A Requisição de Entrada foi cadastrada com sucesso!";
+            return View("Notificador");
         }
     }
 }

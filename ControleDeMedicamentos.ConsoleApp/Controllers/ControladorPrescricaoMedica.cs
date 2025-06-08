@@ -53,6 +53,7 @@ namespace ControleDeMedicamentos.ConsoleApp.Controllers
             PrescricaoMedica prescricaoMedica = cadastrarVM.ParaEntidade(pacientes, medicamentos);
 
             repositorio.CadastrarRegistro(prescricaoMedica);
+            ViewBag.Mensagem = $"A prescrição foi cadastrada com sucesso!";
             return View("Notificador");
         }
 

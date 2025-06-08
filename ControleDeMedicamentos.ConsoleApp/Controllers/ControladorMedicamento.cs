@@ -43,7 +43,10 @@ namespace ControleDeMedicamentos.ConsoleApp.Controllers
             Medicamento medicamento = cadastrarVM.ParaEntidade(repositorioFornecedor.SelecionarRegistros());
                 
             repositorio.CadastrarRegistro(medicamento);
-            return View("Cadastrar", cadastrarVM);
+            
+            ViewBag.Mensagem = $"O medicamento {medicamento.Nome}  foi cadastrado com sucesso!";
+
+            return View("Notificador");
         }
 
         [HttpGet("editar/{Id:int}")]
